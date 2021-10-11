@@ -17,7 +17,7 @@ export interface API<OptionExtension = {}> {
    *   }
    * }
    *
-   * const cid = await ipfs.dag.put(obj, { format: 'dag-cbor', hashAlg: 'sha2-256' })
+   * const cid = await ipfs.dag.put(obj, { storeCodec: 'dag-cbor', hashAlg: 'sha2-256' })
    * console.log(cid.toString())
    * // zdpuAmtur968yprkhG9N5Zxn6MFVoqAWBbhUAkNLJs2UtkTq5
    *
@@ -54,7 +54,7 @@ export interface API<OptionExtension = {}> {
    * @example
    * ```js
    * const obj = { simple: 'object' }
-   * const cid = await ipfs.dag.put(obj, { format: 'dag-cbor', hashAlg: 'sha2-512' })
+   * const cid = await ipfs.dag.put(obj, { storeCodec: 'dag-cbor', hashAlg: 'sha2-512' })
    *
    * console.log(cid.toString())
    * // zBwWX9ecx5F4X54WAjmFLErnBT6ByfNxStr5ovowTL7AhaUR98RWvXPS1V3HqV1qs3r5Ec5ocv7eCdbqYQREXNUfYNuKG
@@ -77,7 +77,7 @@ export interface API<OptionExtension = {}> {
    *   }
    * }
    *
-   * const cid = await ipfs.dag.put(obj, { format: 'dag-cbor', hashAlg: 'sha2-256' })
+   * const cid = await ipfs.dag.put(obj, { storeCodec: 'dag-cbor', hashAlg: 'sha2-256' })
    * console.log(cid.toString())
    * // bafyreicyer3d34cutdzlsbe2nqu5ye62mesuhwkcnl2ypdwpccrsecfmjq
    *
@@ -139,7 +139,7 @@ export interface PutOptions extends AbortOptions, PreloadOptions {
   /**
    * The codec that the stored object will be encoded with (defaults to 'dag-cbor')
    */
-  format?: string
+  storeCodec?: string
 
   /**
    * Multihash hashing algorithm to use (defaults to 'sha2-256')
