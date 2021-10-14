@@ -8,7 +8,7 @@ import { toString as uint8ArrayToString } from 'uint8arrays/to-string'
 /**
  * @type {Record<number, string>}
  */
-const formats = {
+const codecNames = {
   [raw.code]: raw.name,
   [dagPB.code]: dagPB.name,
   [dagCBOR.code]: dagCBOR.name
@@ -37,7 +37,7 @@ class IPFSBlockstore extends BaseBlockstore {
    */
   async put (cid, buf) {
     const c = await this.ipfs.block.put(buf, {
-      format: formats[cid.code],
+      storeCodec: codecNames[cid.code],
       mhtype: hashes[cid.multihash.code],
       version: cid.version
     })
