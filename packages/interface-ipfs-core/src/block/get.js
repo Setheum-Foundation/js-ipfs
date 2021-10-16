@@ -47,7 +47,7 @@ export function testGet (factory, options) {
 
     it('should get an empty block', async () => {
       const cid = await ipfs.block.put(new Uint8Array(0), {
-        storeCodec: 'dag-pb',
+        format: 'dag-pb',
         mhtype: 'sha2-256',
         version: 0
       })
