@@ -37,7 +37,7 @@ export function testExport (factory, options) {
         Links: []
       })
       const childCid = await ipfs.block.put(child, {
-        storeCodec: 'dag-pb',
+        format: 'dag-pb',
         version: 0
       })
       const parent = dagPB.encode({
@@ -48,14 +48,14 @@ export function testExport (factory, options) {
         }]
       })
       const parentCid = await ipfs.block.put(parent, {
-        storeCodec: 'dag-pb',
+        format: 'dag-pb',
         version: 0
       })
       const grandParent = dagCBOR.encode({
         parent: parentCid
       })
       const grandParentCid = await await ipfs.block.put(grandParent, {
-        storeCodec: 'dag-cbor',
+        format: 'dag-cbor',
         version: 1
       })
 
